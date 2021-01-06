@@ -1,0 +1,206 @@
+﻿
+<script>
+    angular.module('app').controllerProvider.register("userIndexController", function ($scope, $vrum, $msg, $state) {
+
+        var self = this; // named controller
+        self.$vrum = $vrum;
+        if (!$vrum.id()) return $state.go("index");
+
+        self.sync = function () {
+            $vrum.x('profile.sync', {}, function (err, reply) {
+                if (err) return $msg.show("Error", err || reply);
+                if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest')
+                    $scope.$apply();
+            });
+        }
+
+        self.score = 1;
+        self.submitScore = function () {
+            $vrum.x('profile.score.submit', { score: self.score || 0 }, function (err, reply) {
+                if (err) return $msg.show("Error", err || reply);
+                self.lastSubmit = "submitted: " + self.score;
+                if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest')
+                    $scope.$apply();
+            });
+        }
+
+        self.getTimeDisplay = function (unixDate) {
+
+            var diff = Math.abs((new Date()).getTime() - parseFloat(unixDate));
+            var diffMin = Math.ceil(diff / (1000));
+            if (diffMin < 1) return "less than minute ago";
+
+            var diffHours = Math.ceil(diff / (1000 * 3600));
+            if (diffHours < 1) return diffMin + " minute" + (diffMin > 1 ? "s" : "") + " ago";
+
+            var diffDays = Math.ceil(diff / (1000 * 3600 * 24));
+            if (diffDays < 1) return diffMin + " hour" + (diffHours > 1 ? "s" : "") + " ago";
+            if (diffDays > 365) return "over a year ago";
+            return diffDays+ " day" + (diffDays > 1 ? "s" : "") + " ago";
+
+        }
+
+    });
+</script>
+
+
+<div ng-controller="userIndexController as _user">
+    
+    <div class="container-fluid match-history-main-container" style="margin-top:50px;">
+        <div class="img-left">
+            <img src="images/profile.jpg" width="80" height="80" alt="" />
+        </div>
+
+        <div class="player-info">
+            <p class="username-match-history">{{ _user.$vrum.profile.username }} </p><p class="smaller2">Ladder Rank 179,309 (6.4158% of top)</p>
+            <button type="button" class="btn btn-info" ng-click="_user.sync()">Update Data </button>
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid  match-history-main-container2">
+
+        <div class="row ">
+            <div class="col-sm-4">
+
+                <div class="row tier-div">
+                    <div class="table-style2"><img src="images/platinum_4.png" width="100" height="100" alt="" /></div>
+                    <div class="table-style2">
+                        <b>Platinum 4</b><br>
+                        <b>61 LP</b> / 111W
+                    </div>
+                </div>
+                
+                <div class="table-style">
+                    <table width="100%" border="0">
+                        <caption class="caption-class">
+                            <b>Season 1 Most Played Heroes</b>
+                        </caption>
+                        <tbody>
+                            <tr class="table-spacing">
+                                <td><img src="images/jubejube.jpg" alt="JubeJube"></td>
+                                <td>JubeJube</td>
+                                <td><b>2.22:1</b>KDA</td>
+                            </tr>
+                            <tr class="table-spacing">
+                                <td><img src="images/jubejube.jpg" alt="JubeJube"></td>
+                                <td>JubeJube</td>
+                                <td><b>2.22:1</b>KDA</td>
+                            </tr>
+                            <tr class="table-spacing">
+                                <td><img src="images/jubejube.jpg" alt="JubeJube"></td>
+                                <td>JubeJube</td>
+                                <td><b>2.22:1</b>KDA</td>
+                            </tr>
+                            <tr class="table-spacing">
+                                <td><img src="images/jubejube.jpg" alt="JubeJube"></td>
+                                <td>JubeJube</td>
+                                <td><b>2.22:1</b>KDA</td>
+                            </tr>
+                            <tr class="table-spacing">
+                                <td><img src="images/jubejube.jpg" alt="JubeJube"></td>
+                                <td>JubeJube</td>
+                                <td><b>2.22:1</b>KDA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="col-sm-8">
+                <div role="tabpanel">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active-tab"><a href="#home1" data-toggle="tab" role="tab">All Games</a></li>
+                        <li><a href="#highScorePanel" data-toggle="tab" role="tab">High Score</a></li>
+
+                        <li><a href="#paneTwo1" data-toggle="tab" role="tab">Ranked Games</a></li>
+                        <li><a href="#paneTwo1" data-toggle="tab" role="tab">Normal Games</a></li>
+                    </ul>
+                    <div id="tabContent1" class="tab-content">
+                        <div class="tab-pane fade in active" id="home1">
+                            <div class="games-box">
+                                <div class="details-box"><p class="gwl">{{ _user.$vrum.profile.scoreLog.games || 0 }}G {{ _user.$vrum.profile.scoreLog.wins || 0 }}W {{ _user.$vrum.profile.scoreLog.losses || 0 }}L</p></div>
+                                <div class="details-box">
+                                    <p class="kda"><span class="kill-assist">4.5</span> / <span class="death">5.4</span> / <span class="kill-assist">5.3</span></p>
+                                    <p class="kda-details">Average	1.81:1 KDA	<span class="death">(Kill Contribution 44%)</span></p>
+                                </div>
+                            </div>
+
+                            <div ng-repeat="score in _user.$vrum.profile.scores">
+
+                                <div class="{{ score.score>0 ? 'games-box-won' : 'games-box-lost' }}">
+                                    <div class="game-outcome"><span class="small-text">Ranked Game</span><span class="smaller-text"> {{ _user.getTimeDisplay(score.date) }}</span> <div class="float-right">39m 33s <span class="loss">{{score.score>0?"Victory":"Defeat"}}</span></div></div>
+
+                                    <div class="game_outcome_details">
+                                        <div class="hero-details">
+                                            <img src="images/jube_bigger.jpg" width="60" height="60">
+                                            <div class="hero_name">JubeJube</div>
+                                        </div>
+                                        <div class="kda-gamestats">
+                                            <p class="kda-gamedetails"><span class="kill-assist">13</span> / <span class="death">9</span> / <span class="kill-assist">5</span></p>
+                                            <p class="kda-gamedetails-small">2.00:1 KDA</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        
+                        <div class="tab-pane fade" id="highScorePanel">
+
+                            <table style="margin:20px;">
+                                <tr style="background-color:#333;color:#eee;">
+                                    <th style="width:150px;padding:5px;">Player</th>
+                                    <th style="width:100px;padding:5px;">Score</th>
+                                    <th style="width:150px;padding:5px;">Date</th>
+                                </tr>
+                                <tr ng-repeat="score in _user.$vrum.profile.overallScores">
+                                    <td style="width:150px;padding:5px;">{{ score.name || "?" }}</td>
+                                    <td style="width:100px;padding:5px;">{{ score.score }}</td>
+                                    <td style="width:150px;padding:5px;">{{ _user.getTimeDisplay(score.date) }}</td>
+                                </tr>
+                            </table>
+
+
+                        </div>
+
+
+
+                        <div class="tab-pane fade" id="paneTwo1">
+                            
+                            <div ng-repeat="score in _user.$vrum.profile.scores">
+
+                                <div class="{{ score.score>0 ? 'games-box-won' : 'games-box-lost' }}">
+                                    <div class="game-outcome"><span class="small-text">Ranked Game</span><span class="smaller-text"> {{ _user.getTimeDisplay(score.date) }}</span> <div class="float-right">39m 33s <span class="loss">{{score.score>0?"Victory":"Defeat"}}</span></div></div>
+
+                                    <div class="game_outcome_details">
+                                        <div class="hero-details">
+                                            <img src="images/jube_bigger.jpg" width="60" height="60">
+                                            <div class="hero_name">JubeJube</div>
+                                        </div>
+                                        <div class="kda-gamestats">
+                                            <p class="kda-gamedetails"><span class="kill-assist">13</span> / <span class="death">9</span> / <span class="kill-assist">5</span></p>
+                                            <p class="kda-gamedetails-small">2.00:1 KDA</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin:30px;">
+                                <span>score test > 0 ? win : lose</span><br />
+                                <input type="text" ng-model="_user.score" />
+                                <button class="btn btn-default" ng-click="_user.submitScore()"></button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

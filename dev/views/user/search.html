@@ -1,0 +1,61 @@
+﻿
+<script>
+    angular.module('app').controllerProvider.register("userSearchController", function ($scope, $vrum, $msg, $state) {
+        var self = this; // named controller
+        self.$vrum = $vrum;
+
+        if (!$vrum.profile.userSearch) {
+            $vrum.exec("profile.search.all", {}, function (err, reply) {
+                if (err) return $msg.show("Error", err);
+                $.each(reply, function (k, v) {
+                    if (v.scoreLog) v.scoreLog = JSON.parse(v.scoreLog);
+                });
+                $vrum.profile.userSearch = reply;
+                $scope.$apply(); 
+            });
+        }
+
+        self.follow = function (id) {
+            $vrum.exec("profile.share.follow", { id: id }, function (err, reply) {
+                switch (err) {
+                    case "client required": $msg.show("Error", "You need to login to follow a person."); break;
+                    default: console.log("follow:", id, err || reply);
+                }
+            });
+        }
+
+        //if (!$vrum.id()) return $state.go("index");
+    });
+</script>
+
+
+<div ng-controller="userSearchController as _userSearch">
+
+    <div class="container-fluid match-history-search">
+        <div>
+            <div class="search-positioning">
+                <div>
+                    <div class="input-group input-group-lg search-form-style">
+                        <input type="text" class="form-control" placeholder="username">
+                        <span class="input-group-addon">Search Icon</span>
+                    </div>
+                    <div class="input-group input-group-lg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid match-history-main-container2" ng-repeat="usr in _userSearch.$vrum.profile.userSearch">
+        <div class="img-left">
+            <img src="images/profile.jpg" width="80" height="80" alt="" />
+        </div>
+        <div class="player-info">
+            <p class="username-match-history">{{ usr.name }} </p>
+            <p class="smaller2">{{ usr.scoreLog.games || 0 }}G {{ usr.scoreLog.wins || 0 }}W {{ usr.scoreLog.losses || 0 }}L </p>
+            
+            <button type="button" class="btn btn-success" ui-sref="user/visit({id:usr.id})">Watch Game</button>
+            <button type="button" class="btn btn-success" ng-click="_userSearch.follow(usr.id)">Follow</button>
+        </div>
+    </div>
+
+</div>

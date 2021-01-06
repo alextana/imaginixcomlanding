@@ -1,0 +1,76 @@
+﻿
+<script>
+    angular.module('app').controllerProvider.register("userVisitController", function ($scope, $vrum, $msg, $state, $stateParams) {
+        var self = this; // named controller
+        self.$vrum = $vrum;
+        self.usr = { id: $stateParams.id, name: "", scoreLog: {} }
+        self.name = $vrum.profile.username || $vrum.profile.name || "guest";
+        
+        var image = $("#imageFeed")[0];
+        $vrum.x("profile.feed.pull", { id: $stateParams.id }, function (err, reply) {
+            self.usr.name = reply.name;
+            self.usr.scoreLog = reply.scoreLog;
+            $scope.$apply();
+        });
+
+        $vrum.on("profile.feed.broadcast", function (args) {
+            image.src = "data:image/png;base64," + args.dat;
+        });
+
+        $vrum.on("profile.share.livelink", function (reply) {
+            switch (reply.action) {
+                case "chat": self.addLine(reply.name || "[" + reply.id + "]", reply.dat || reply.txt); break;
+                default: $msg.show("?", reply);
+            }
+        });
+
+        self.chat = function () {
+            if (!self.chatLine) return;
+            $vrum.exec("profile.share.chat", { dat: self.chatLine, name: self.name }, function (err, reply) {
+                self.addLine("[me]", self.chatLine);
+                self.chatLine = "";
+                $scope.$apply();
+            });
+        }
+
+        self.lines = [];
+        self.addLine = function (src, txt) {
+            self.lines.push({ src: src, txt: txt });
+            if (self.lines.length > 30) self.lines.unshift();
+            $scope.$apply();
+        }
+
+    });
+</script>
+
+
+<div ng-controller="userVisitController as _user">
+    
+    <div class="container-fluid match-history-main-container2">
+        <div class="img-left">
+            <img src="images/profile.jpg" width="80" height="80" alt="" />
+        </div>
+
+        <div class="player-info">
+            <p class="username-match-history">{{ _user.usr.name }} </p>
+            <p class="smaller2">{{ _user.usr.scoreLog.games || 0 }}G {{ _user.usr.scoreLog.wins || 0 }}W {{ _user.usr.scoreLog.losses || 0 }}L</p>
+            
+        </div>
+    </div>
+
+    <div id="feedMe" style="width:400px;height:300px;margin:0 auto 10px auto;background-color:#333">
+        <img id="imageFeed" src="" style="width:400px;height:300px;" />
+    </div>
+
+    <div class="container-fluid">
+        <div id="chat" style="max-height:300px;width:400px;background-color:#222;margin:0 auto 0px auto;"> 
+            <div ng-repeat="line in _user.lines">{{line.src}}: {{line.txt}}</div>
+        </div>
+        <div style="margin:0 auto 50px auto;width:400px;">
+            <input type="text" style="color:#333;width:320px;" ng-model="_user.chatLine" />
+            <button style="color:#333;" ng-click="_user.chat()">Send</button>
+        </div>        
+    </div>
+
+
+</div>

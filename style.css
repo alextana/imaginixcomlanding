@@ -1,0 +1,666 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color:#010e16;
+	color:#262626;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color:white;
+}
+
+h4 {
+		color:#fff;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-weight:100;
+	text-align:center;
+	
+}
+
+h7 {
+	
+	color:#fff;
+	font-family:'Oswald';
+	font-size:1.4em;
+	text-transform:uppercase;
+
+}
+
+#modalBody {
+	color:#05A3FC;
+	text-shadow:none;
+
+}
+
+h8 {
+
+	color:#fff;
+	font-family:'Oswald';
+	font-size:2.8em;
+	text-transform:uppercase;
+	font-weight:300;
+	text-shadow:0px 0px 9px #02ACF4;
+	
+	
+
+}
+
+h6 {
+
+	color:#fff;
+	font-family:'Oswald';
+	font-size:2.8em;
+	text-transform:uppercase;
+	
+
+}
+
+.p-7 {
+	font-size:1.2em;
+	color:#fff;
+	font-family:'Roboto';
+	font-weight:300;
+	text-align:Center;
+	text-shadow:none;
+}
+.modal-content {
+	background-color:rgba(0,0,0,.93);
+	border:1px solid #0083FD;
+	box-shadow:0px 0px 75px #0083FD;
+}
+.modal-footer {
+border-top:1px solid rgba(7,143,241,.6)
+}
+.modal-header {
+	border-bottom:1px solid rgba(7,143,241,.6)
+}
+.v-center {
+	margin-top:15px;
+}
+
+.btn-default {
+	background:transparent;
+	border:1px solid white;
+	color:white;
+	border-radius:0;
+	outline:none;
+	font-family:'Oswald';
+	font-size:1em;
+	text-transform:uppercase;
+	transition:ease-in 0.2s;
+
+}
+
+.jumbotron {
+min-height:768px;
+margin-bottom:0px;
+background-position:center;
+background:transparent;
+
+z-index:999;
+
+
+}
+
+.sep {
+	position:relative;
+	margin:0 auto;
+	margin-top:25px;
+	margin-bottom:25px;	
+	
+	width:100%;
+	max-width:665px;
+	background-repeat:no-repeat;
+	height:9px;
+}
+
+.jumbotron h1 {
+	color:#fff;
+	font-family:'Oswald',sans-serif;
+	font-weight:400;
+	text-transform:uppercase;
+	
+	
+	font-size:3em;
+	
+}
+
+	h3 {
+	font-family:'Oswald',sans-serif;
+	font-weight:300;
+	text-shadow:0px 0px 15px #0074FF;
+	text-transform:uppercase;
+	color:#fff;
+
+	margin:0px;
+	padding:0px;
+
+	font-size:5em;
+
+
+	
+}
+
+
+p {
+	font-family:'Roboto';
+	font-size:1.5em;
+	color:#A1D0F3;
+	text-shadow:0px 1px 1px rgba(0,0,0,.9);
+	font-weight:300;
+	line-height:2.3em;
+}
+
+a {
+	color:#fff;
+	transition:ease-in 0.1s;
+
+}
+
+a:hover {
+	color:#00ABFF;
+	text-decoration:none;
+	
+}
+
+p.foot_foot {
+	font-size:11px;
+}
+p.footer_text {
+	color:#797979;
+	font-size:12px;
+	
+	
+	}
+	
+.jumbotron p {
+	font-size:18px;
+}
+
+.section2 {
+background:transparent;
+background-position:center;
+margin-top:0px;
+padding-top:0px;
+
+
+}
+
+
+.section-txt-pos {
+	text-align:center;
+	padding-top:65px;
+	}
+
+.p-2 {
+	
+	font-family:'Roboto';
+	font-weight:300;
+	line-height:25px;
+	font-size:18px;
+	color:#eee;
+	text-shadow:0px 1px 2px rgba(0,0,0,.8);
+
+}
+
+.p-3 {
+	
+	font-family:'Roboto';
+	font-weight:300;
+	line-height:25px;
+	font-size:16px;
+	color:#BACAE4;
+		text-shadow:0px 1px 2px rgba(0,0,0,.8);
+
+}
+
+.p-4 {
+	
+	font-family:'Roboto';
+	font-weight:300;
+	line-height:35px;
+	font-size:19px;
+	
+	color:#fff;
+		text-shadow:0px 1px 2px rgba(0,0,0,.8);
+
+}
+
+.p-5 {
+	
+	font-family:'Roboto';
+	font-weight:300;
+	line-height:35px;
+	font-size:13px;
+	
+	color:rgba(255,255,255,.8);
+		text-shadow:0px 1px 2px rgba(0,0,0,.8);
+
+}
+
+.jumbotron h2 {
+	color:#fff;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-weight:100;
+	text-align:center;
+	font-size:1.4em;
+	
+}
+
+.vertical-center {
+	min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+	text-align:Center;
+  display: flex;
+  align-items: center;
+}
+h4 {
+	color:#fff;
+	font-family:'Oswald';
+	font-size:22px;
+}
+.divider {
+	background-image:url(images/divider.png);
+	background-position:center;
+	width:100%;
+	background-repeat:no-repeat;
+	min-height:300px;
+	margin:0 auto;
+	margin-top:-22px;
+}
+
+
+.button-big {
+	padding:15px;
+	background:transparent;
+	
+	border-radius:0px;
+	border:1px solid #fff;
+	color:#fff;
+	text-transform:uppercase;
+	font-family:'Oswald';
+	font-weight:bold;
+	margin:20px;
+	transition: 0.4s ease-in;
+	
+	
+}
+
+.button-big:hover {
+	background:#fff;
+	color:#2F2F2F;
+	box-shadow:none;
+	border:1px solid #fff;
+}
+	
+	.button-big:focus {
+	background:#fff;
+	color:#2F2F2F;
+	box-shadow:none;
+	border:1px solid #fff;
+	outline:none;
+}
+h7 {
+	font-family:'Roboto';
+	font-weight:500;
+	
+	color: #006CFF;
+	font-size:22px;
+	text-transform:uppercase;
+}
+.logo-img {
+
+	
+position:absolute;
+left:50%;
+margin-left:-189px;
+margin-top:60px;
+
+
+}
+
+.splash-positioning{
+	text-align:center;
+	margin-bottom:120px;
+	margin-top:-40px;
+}
+
+.free-to-play {
+	
+	position:relative;
+	min-height:330px;
+	background-position:right;
+	background-repeat:no-repeat;
+	text-align:center;	
+}
+.different-arenas {	
+	padding-top:35px;
+	min-height:330px;
+	
+	text-align:center;
+	background-position:left bottom;
+	background-repeat:no-repeat;
+	
+}
+
+.competitive-play {
+	
+	position:relative;
+	min-height:330px;
+	background-position:right;
+	background-repeat:no-repeat;
+
+	text-align:center;
+	padding-top:60px;
+	margin-bottom:60px;
+
+}
+
+.inner-text {
+	width:100%;
+	margin-top:15px;
+
+}
+
+
+
+
+
+
+#section-3{
+	background:transparent;
+	position:relative;
+}
+.about-txt {
+	text-align:center;
+	margin:0 auto;
+	width:60%;
+	margin-top:20px;
+	margin-bottom:20px;
+	z-index:9999;
+	background:transparent;
+	
+}
+
+.platform {
+	background-image:url(images/platform.jpg);
+	height:309px;
+	background-position:center bottom;
+	text-align:center;
+	bottom:0;
+
+	width:100%;
+	border-top:1px solid #155488;
+		border-bottom:2px solid #155488;
+		box-shadow:0px 0px 65px #000;
+}
+
+.monkey {
+	
+	max-width:388px;
+	position:relative;
+	margin:0 auto;
+	margin-top:-290px;
+	  animation-name: floating;
+    -webkit-animation-name: floating;
+
+    animation-duration: 3s;   
+    -webkit-animation-duration: 3s;
+
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+
+}
+
+@keyframes floating {
+    0% {
+        margin-top:-290px
+    }
+   
+    50% {
+       margin-top:-300px;
+    } 
+	
+	100% {
+		margin-top:-290px;
+	}
+}
+
+
+.forms-position {
+	width:50%;
+	margin:0 auto;
+	text-align:center;
+	
+}
+
+
+.form-landing {
+	text-transform:uppercase;
+	background:rgba(0,0,0,.7);
+	border:2px solid #fff;
+	color:#fff;
+	padding:15px;
+	font-family:'Oswald';
+	font-weight:400;
+	border-radius:0;
+	
+
+}
+
+.btn-landing {
+	width:100%;
+	border-radius:0;
+	text-transform:uppercase;
+	font-family:'Oswald';
+	font-weight:400;
+}
+
+.container-about {
+	width:80%;
+}
+
+.about-cont {
+	background:rgba(0,0,0,.7);
+
+
+	width:100%;
+	padding-top:20px;
+	padding-bottom:30px;
+	box-shadow:0px 0px 25px rgba(0,0,0,.4);
+	margin-bottom:260px;
+}
+
+.footer-style {
+	background-color:transparent;
+
+
+	padding-top:30px;
+	padding-bottom:30px;
+
+}
+
+.footer-container {
+	margin:0 auto;
+	position:relative;
+	text-align:center;
+	max-width:960px;
+	margin-top:2px;
+}
+
+.nav-style {
+	background:transparent;
+	border:0;
+	color:#fff;
+	height:100px;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color:#fff;
+	text-transform:uppercase;
+	font-family:'Oswald';
+	font-weight:400;
+	margin-right:50px;
+	}
+	
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: transparent;
+  border-bottom:1px solid white;
+  
+}
+
+.game-icon {
+	width:80px;
+	height:80px;
+	margin:0 auto;
+	margin-top:-60px;
+	box-shadow:0px 0px 15px rgba(9,139,212,0.60);
+	transition:ease-in 0.3s;
+}
+
+.about-cont:hover > .game-icon {
+	box-shadow:0px 0px 40px rgba(9,139,212,0.90);
+}
+
+.modal-title {
+	text-transform:uppercase;
+	font-family:'Oswald';
+}
+
+.text-right {
+	margin-bottom:0px;
+	text-align:center;
+	
+}
+
+@media (min-width: 500px) {
+	
+	.jumbotron h2 {
+	color:#fff;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-weight:100;
+	text-align:center;
+	font-size:1.8em;
+	
+}
+	
+	.jumbotron h1 {
+		font-size:5em;
+	}
+	
+    .free-to-play { 
+		background-image:url(images/f2p.png);
+					text-align:left;
+	}
+
+	.different-arenas {		
+		background-image:url(images/arenas.png);	
+				text-align:right;	
+	}
+
+	.competitive-play {		
+		background-image:url(images/competitive.png);
+			text-align:left;
+	}
+	
+	.inner-text {
+	width:50%;
+	margin-top:15px;
+
+}
+
+.text-right {
+	margin-bottom:15px;
+	text-align:right;
+}
+	
+}
+
+/*=========================
+  Icons
+ ================= */
+
+/* footer social icons */
+ul.social-network {
+	list-style: none;
+	display: inline;
+	margin-left:0 !important;
+	padding: 0;
+}
+ul.social-network li {
+	display: inline;
+	margin: 0 5px;
+}
+
+
+/* footer social icons */
+.social-network a.icoRss:hover {
+	background-color: #F56505;
+}
+.social-network a.icoFacebook:hover {
+	background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+	background-color:#1e92bc;
+}
+.social-network a.icoGoogle:hover {
+	background-color:#BD3518;
+}
+.social-network a.icoVimeo:hover {
+	background-color:#0590B8;
+}
+.social-network a.icoLinkedin:hover {
+	background-color:#007bb7;
+}
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+	color:#fff;
+}
+a.socialIcon:hover, .socialHoverClass {
+	color:#44BCDD;
+}
+
+.social-circle li a {
+	display:inline-block;
+	position:relative;
+	margin:0 auto 0 auto;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	text-align:center;
+	width: 80px;
+	height: 80px;
+	font-size:30px;
+    border:2px solid white;
+}
+.social-circle li i {
+	margin:0;
+	line-height:78px;
+	text-align: center;
+   
+}
+
+.social-circle li a:hover i, .triggeredHover {
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-ms--transform: rotate(360deg);
+	transform: rotate(360deg);
+  
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.social-circle i {
+	color: #fff;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	transition: all 0.8s;
+}

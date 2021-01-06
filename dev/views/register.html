@@ -1,0 +1,79 @@
+﻿<script>
+    angular.module('app').controllerProvider.register("registerController", function ($scope, $vrum, $msg, $state) {
+        var self = this; // named controller
+        self.register = function () {
+            if (!self.username || self.username.length < 6) 
+                return $msg.show("Error", "The username requires 6 or more characters.");
+            if (!self.password || self.password.length < 6)
+                return $msg.show("Error", "The password requires 6 or more characters.");
+            if (self.password != self.passwordConfirm)
+                return $msg.show("Error", "The passwords do not match.");
+            if (!self.terms)
+                return $msg.show("Error", "Please aggree with the terms.");
+            $vrum.x('profile.auth.register-up', { usr: self.username, pwd: self.password, email: self.email }, function (err, reply) {
+                if (err) return $msg.show("Error", err);
+                $state.go("user/index");
+            });
+        }
+    });
+</script>
+
+<div class="page-signup" ng-controller="registerController as _reg">
+    <div class="container-fluid container-signup">
+        <div class="container-signup">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="game-logo-video"><img src="images/game_logo_big.png"></div>
+                    <!--video class="video" controls
+                           x-webkit-airplay="allow"
+                           data-youtube-id="N9oxmRT2YWw"
+                           src="https://www.youtube.com/embed/fQbGe5J35gk"></!--video-->
+                    <div style="overflow:hidden;height:270px;width:480px;"><div id="youtube_canvas" style="height:270px;width:480px;"><iframe style="height:270px;width:480px;border:0;" frameborder="0" src="https://www.youtube.com/embed/ygScvVfcjfI?hl=en&amp;autoplay=1&amp;cc_load_policy=0&amp;loop=0&amp;iv_load_policy=1&amp;fs=1&amp;showinfo=1"></iframe></div><a class="youtube-embed-code" href="https://www.tubeembed.com" id="get-youtube-data">tubeembed</a>
+                    <style>
+                        #youtube_canvas img {
+                            max-width: none !important;
+                            background: none !important;
+                        }
+                    </style></div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="signup-forms-container" ng-if="!completed">
+                        <section>
+                            <label class="input">
+                                <input type="text" placeholder="Username" ng-model="_reg.username">
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="input">
+                                <input type="text" placeholder="E-Mail Address" ng-model="_reg.email">
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="input">
+                                <input type="Password" placeholder="Password" ng-model="_reg.password">
+                            </label>
+                        </section>
+
+
+                        <section>
+                            <label class="input">
+                                <input type="Password" placeholder="Confirm Password" ng-model="_reg.passwordConfirm">
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="checkbox">
+                                <input type="checkbox" name="checkbox" ng-model="_reg.terms">
+                                I Agree to the Terms of Service
+                            </label>
+                        </section>
+
+                        <button type="button" class="client-download" ng-click="_reg.register()">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

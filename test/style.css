@@ -1,0 +1,281 @@
+@charset "utf-8";
+
+body {
+	background-color:#000;
+
+
+	color:#fff;
+}
+
+
+
+p.foot_foot {
+	font-size:11px;
+}
+p.footer_text {
+	color:#fff;
+	font-size:12px;
+	
+	}
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+/*
+  WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+  Need to override the 3.3 new styles for modern browsers & apply opacity
+*/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	background-color:transparent;
+	color:#fff;
+	border-bottom:4px solid #0072bc;
+	
+}
+
+
+
+
+h2 {
+
+	background-color:rgba(0,0,0,.7);
+	padding:10px;
+	max-width:450px;
+
+}
+
+h3{
+	 color:#fff; 
+	 text-transform:uppercase;
+	 font-size:18px;
+	 background-color:rgba(0,0,0,.7);
+	 padding:10px;
+}
+
+.btn-primary {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00b0d3+0,0c2b38+100 */
+background: rgb(0,176,211); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(0,176,211,1) 0%, rgba(12,43,56,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(0,176,211,1) 0%,rgba(12,43,56,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(0,176,211,1) 0%,rgba(12,43,56,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b0d3', endColorstr='#0c2b38',GradientType=0 ); /* IE6-9 */
+
+font-weight:bold;
+font-size:12px;
+	border-radius:0px;
+}
+
+p {
+	color:#8e9eab;
+		
+	
+}
+
+.navbar-style {
+	z-index:9999;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#040405+0,000d22+100 */
+background: #040405; /* Old browsers */
+background: -moz-linear-gradient(top,  #040405 0%, #000d22 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #040405 0%,#000d22 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #040405 0%,#000d22 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#040405', endColorstr='#000d22',GradientType=0 ); /* IE6-9 */
+
+border-radius:0px;
+border-bottom:1px solid #0072bc;
+border-top:0px;
+border-left:0px;
+border-right:0px;
+margin-bottom:-20px;
+box-shadow:0px 2px 20px rgba(0,0,0,.8);
+}
+a {
+	color:#fff;
+	font-size:12px;
+}
+.caption-positioning {
+
+	padding:15px;
+	text-align:left;
+	font-size:34px;
+	margin-bottom:40px;
+	color:#fff;
+	left:5%;
+	
+}
+
+ul.dropdown-menu {
+	background-color:rgba(0,0,0,.8);
+	color:#fff;
+	text-transform:capitalize;
+}
+
+.dropdown-menu > li > a {
+	color:#fff;
+
+}
+
+.carousel-indicators li {
+	width:15px;
+	height:15px;
+
+}
+.carousel-indicators li.active {
+	width:16px;
+	height:16px;
+}
+.smaller {
+	font-size:14px;
+	color:#fff;
+		background-color:rgba(0,0,0,.7);
+		padding:10px;
+		max-width:400px;
+}
+.indicators-positioning {
+	text-align:right;
+	margin-bottom:45px;
+	text-shadow:0px 0px 3px #000;
+	
+}
+.main-container {
+	
+	max-width:960px;
+	background-color:rgba(255,255,255,.08);
+	background-repeat:repeat;
+	box-shadow:0px 15px 40px #000;
+	padding:20px;
+	margin-top:45px;
+	margin-bottom:45px;
+	z-index:9999;
+	
+	
+	
+}
+
+.carousel-inner {
+	border-bottom:1px solid #000;
+	box-shadow:0px 0px 30px #000;
+}
+.thumbnail-style {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#091e30+0,040c16+100 */
+background: #091e30; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #091e30 0%, #040c16 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover,  #091e30 0%,#040c16 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center,  #091e30 0%,#040c16 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#091e30', endColorstr='#040c16',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+	border:1px solid #003663;
+	box-shadow:0px 10px 10px rgba(0,0,0,.5);
+	border-radius:0px;
+	
+}
+.carousel-index {
+	z-index:1000;
+}
+
+.footer-style {
+	background-color:#080c0e;
+	background-image:url(images/footer.png);
+background-repeat:repeat-x;
+	padding-top:30px;
+	padding-bottom:30px;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color:#fff;
+;
+}
+.navbar-default .navbar-link:hover {
+  color: #fff;
+ 
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: transparent;
+  
+}
+li a {
+	color:#fff;
+	text-transform:uppercase;
+	font-weight:bold;
+	background-color:transparent;
+	border-bottom:4px solid transparent;
+}
+
+li a:hover {
+	color:#fff;
+	border-bottom:4px solid #0072bc;
+	text-shadow:0px 0px 15px #1458C1;
+	
+}
+
+
+.container-style {
+	
+	background-image:url(images/bg.jpg);
+	background-size:cover;
+	
+}
+
+.nav_style {
+	color:#fff;
+}.footer-container {
+	text-align:center;
+	
+	margin:0 auto;
+	max-width:960px;
+}
+
+
+
+
+p.smaller2 {
+	color:#272727;
+	font-size:11px;
+}
+.table-border {
+	border-bottom:1px solid #000;
+}

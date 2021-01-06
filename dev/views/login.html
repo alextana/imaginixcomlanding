@@ -1,0 +1,44 @@
+﻿<script>
+    angular.module('app').controllerProvider.register("loginController", function ($scope, $vrum, $msg, $state) {
+        var self = this; // named controller
+        self.login = function () {
+            if (!self.username || self.username.length < 6)
+                return $msg.show("Error", "The username requires 6 or more characters.");
+            if (!self.password || self.password.length < 6)
+                return $msg.show("Error", "The password requires 6 or more characters.");
+            $vrum.x('profile.auth.signin-up', { usr: self.username, pwd: self.password }, function (err, reply) {
+                if (err) return $msg.show("Error", err || reply);
+                $state.go("user/index");
+            });
+        }
+    });
+</script>
+
+<div class="page-signup" ng-controller="loginController as _login">
+    <div class="container-fluid container-signup">
+        <div class="container-signup">
+            <div class="row" style="height:500px;">
+
+                <div class="col-sm-6">
+                    <div class="game-logo-video"><img src="images/game_logo_big.png"></div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="signup-forms-container">
+                        <section>
+                            <label class="input">
+                                <input type="text" placeholder="username" ng-model="_login.username">
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <input type="Password" placeholder="Password" ng-model="_login.password">
+                            </label>
+                        </section>
+                        <button type="button" class="client-download" ng-click="_login.login()">Sign In</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,266 @@
+@charset "utf-8";
+/* CSS Document */
+
+#match-history {
+	background-color:#E7E7E7;
+	color:#666693;
+}
+
+.match-history-main-container {
+	width:90%;
+	max-width:960px;
+	margin:0 auto;
+	margin-top:20px;
+	line-height:normal;
+	display:table;
+	padding:15px;
+
+}
+
+.img-left {
+	display:table-cell;
+	vertical-align:middle;
+	width:100px;
+}
+
+.player-info {
+	display:table-cell;
+	vertical-align:middle;
+}
+
+.match-history-main-container2 {
+	width:90%;
+	max-width:960px;
+	margin:0 auto;
+	margin-top:20px;
+	line-height:normal;
+	background-color:#fff;
+	padding:15px;
+	border:1px solid #C7C7C7;
+		margin-bottom:50px;
+}
+
+.match-history-search {
+	background-image:url(images/gradient_bg.jpg);
+	width:100%;
+	height:150px;
+	background-repeat:no-repeat;
+}
+
+.search-positioning {
+	position:relative;
+	margin:0 auto;
+	max-width:400px;
+	margin-top:60px;
+}
+
+.search-form-style {
+	box-shadow:3px 3px 5px rgba(0,0,0,.4);
+}
+
+
+p.username-match-history {
+	font-size:18px;
+	font-weight:bold;
+	color:#1A1919;
+	margin-bottom:0px;
+}
+
+
+.table-style {
+
+	padding:5px;
+
+	vertical-align:middle;
+}
+
+.tier-div {
+	text-align:center;
+	margin:0 auto;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;
+}
+
+.table-style2 {
+		display:table-cell;
+		vertical-align:middle;
+		
+}
+.table-style table tr:first-child td:first-child {
+
+
+}
+
+
+.caption-class {
+	border-bottom:1px solid #eee;
+	margin-bottom:15px;
+}
+
+.table-spacing {
+	margin-top:5px;
+	margin-bottom:5px;
+	border-bottom:1px solid #eee;
+	padding-bottom:3px;
+}
+
+.nav-tabs > li > a {
+	color:#858585;
+	border:1px solid #eee;
+	text-transform:none;
+	font-weight:normal;
+}
+
+.nav-tabs > li > a:hover a:active {
+	color:#000;
+}
+
+.nav-tabs > li a:hover {
+
+	color:#000;
+	text-shadow:none;
+	font-weight:normal;
+	
+}
+
+.games-box {
+	border:1px solid #eee;
+	margin-top:20px;
+	width:100%;
+	height:120px;
+	box-shadow:1px 2px 2px #eee;
+	display:table;
+}
+
+
+.games-box-lost {
+	border:1px solid #a1a1a1;
+	border-left:8px solid #D85F5F;
+	background-color:#ffe9ea;
+	margin-top:20px;
+	width:100%;
+	height:120px;
+	box-shadow:1px 2px 2px #a1a1a1;
+	display:table;
+}
+
+.games-box-won {
+	border:1px solid #a1a1a1;
+	border-left:8px solid #43C446;
+	background-color:#D9FBD6;
+	margin-top:20px;
+	width:100%;
+	height:120px;
+	box-shadow:1px 2px 2px #a1a1a1;
+	display:table;
+}
+
+span.win {
+	color:#43c446;
+}
+
+span.loss {
+	color:#d85f5f;
+}
+.game-outcome {
+	line-height:27px;
+	position:relative;
+	height:26px;
+	border-bottom:1px solid #a1a1a1;
+	text-indent:10px;
+	
+}
+
+.game_outcome_details {
+	display:table;
+	width:100%;
+	table-layout:fixed;
+}
+
+.hero-details {
+	position:relative;
+	display:table-cell;
+	vertical-align:middle;
+	width:85px;
+	padding:8px 5px 6px 12px;
+	
+}
+
+.hero_name {
+	font-size:12px;
+	font-weight:bold;
+	
+	padding-top:4px;
+	}
+
+.kda-gamestats {
+	position:relative;
+	text-align:center;
+	
+	display:table-cell;
+	vertical-align:middle;
+
+}
+.kda-gamedetails {
+	font-size:17px;
+	font-weight:bold;
+}
+.kda-gamedetails-small {
+	font-size:11px;
+}
+span.small-text {
+	font-size:12px;
+	font-weight:bold;
+}
+
+span.smaller-text {
+	font-size:10px;
+	
+}
+
+.indicator-lose {
+	background-color:#CC2E30;
+	border-color:#8B1B1D;
+	position:absolute;
+	top:0;
+	left:-1px;
+	bottom:0;
+	width:5px;
+	z-index:0;
+	
+}
+
+.float-right {
+	position:absolute;
+	top:0;
+	right:0;
+	text-align:right;
+	font-size:12px;
+	margin-right:15px;
+}
+
+
+.details-box {
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	
+}
+
+
+p.gwl {
+	font-size:22px;
+}
+
+p.kda {
+	font-size:25px;
+	font-weight:bold;
+}
+
+span.death {
+	color:#CC4648;
+}
+
+span.kill-assist {
+	color:#858585;
+}

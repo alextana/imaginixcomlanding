@@ -1,0 +1,64 @@
+﻿<script>
+    angular.module('app').controllerProvider.register("earlyAccessController", function ($scope, $vrum, $msg, $state) {
+        var self = this; // named controller
+        self.submit = function () {
+            if (!self.email || self.email.length < 6)
+                return $msg.show("Error", "The email requires 6 or more characters.");
+            $vrum.x('profile.earlyAccess', { email: self.email }, function (err, reply) {
+                if (err) return $msg.show("Error", err);
+                self.completed = true;
+                $scope.$apply();
+            });
+        }
+    });
+</script>
+
+<div class="page-earlyaccess" ng-controller="earlyAccessController as _earlyAccess">
+    <div class="banner-area">
+    </div>
+    <div class="gradient-tex">
+    </div>
+    <div class="container">
+
+
+        <div class="col-xs-6 padding">
+            <br>
+            <h2>About Imaginix Games</h2><br>
+            <p>
+                We're gamers and passionate about eSports.
+                Our goal is to build fun to play games but competitive at the same time.<br>
+                We are currently building Reach of the Fallen Legion, a Multiplayer game
+                focused on PvP and Teamplay, Featuring Leagues, Tournaments and Prizes.<br>
+                If you want to try the game during our Closed Beta Testing, you can just
+                sign up and we’ll let you know when it’s ready.
+            </p>
+        </div>
+        <div class="col-xs-6 padding push-top">
+            <div class="text-center" ng-if="!_earlyAccess.completed">
+                <br><br><br>
+                <h2>Sign up for early access</h2>
+                <form class="form-inline push-top">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="email@email.com" ng-model="_earlyAccess.email">
+                    </div>
+                    <button type="submit" class="btn btn-primary" ng-click="_earlyAccess.submit()">Submit</button>
+                </form>
+            </div>
+            <div class="text-center" ng-if="_earlyAccess.completed">
+                <br><br><br>
+                <h2>Early access sign up completed!</h2>
+            </div>
+        </div>
+        <div class="col-xs-12 push-top">
+            <div class="text-center">
+                <br><br>
+                <ul class="social-icons icon-circle icon-rotate list-unstyled list-inline">
+                    <li> <a href="https://www.facebook.com/imaginixgames/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+                    <li> <a href=""><i class="fa fa-youtube"></i></a></li>
+                    <li> <a href="https://twitter.com/imaginixgames"><i class="fa fa-twitter"></i></a></li>
+                    <li> <a href="#"><i class="fa fa-twitch"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

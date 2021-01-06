@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+body.signup {
+	background-image:url(images/signup_bg.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	background-repeat:no-repeat;
+}
+
+.container-signup {
+	width:95%;
+	
+	margin-top:20px;
+}
+
+.video {
+	  width: 100%    !important;
+  height: auto   !important;
+  margin:40px 0px 40px 0px;
+}
+
+.game-logo-video {
+	text-align:center;
+}
+
+.signup-forms-container {
+	width:80%;
+	margin:0 auto;
+	margin-top:80px;
+	background-color:rgba(0,0,0,.7);
+	box-shadow:0px 10px 10px rgba(0,0,0,.5);
+	border-radius:15px;
+	padding:25px;
+	text-align:center;
+}
+
+section {
+
+}
+input {
+	padding:8px;
+	color:#000;
+	margin-bottom:20px;
+	border-radius:5px;
+	font-weight:normal;
+	background-color:#fff;
+}
+
+.client-download {
+	width:300px;
+	padding:8px;
+	background-color:#225CE1;
+	border-radius:3px;
+	outline:none;
+	border:1px solid #2570C9;
+}

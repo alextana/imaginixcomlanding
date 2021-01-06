@@ -1,0 +1,11 @@
+﻿.blank-page {
+    height:300px;
+    width:100%;
+    background-color:#1a1a1a;
+}
+
+.blank-page > div {
+    position:absolute;
+    left:50%;
+    top:200px;
+}
